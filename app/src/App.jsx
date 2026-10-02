@@ -6,22 +6,28 @@ function App() {
     { id: 2, text: "Öppna campet", done: true },
     { id: 3, text: "Pusha till GitHub", done: false },
   ]);
+
   const [text, setText] = useState("");
 
   function addTodo(e) {
     e.preventDefault();
     const trimmed = text.trim();
+
     if (!trimmed) return;
+
     setTodos([
       ...todos,
       { id: Date.now(), text: trimmed, done: false },
     ]);
+
     setText("");
   }
 
   function toggleDone(id) {
     setTodos(
-      todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
+      todos.map((t) =>
+        t.id === id ? { ...t, done: !t.done } : t
+      )
     );
   }
 
@@ -30,24 +36,35 @@ function App() {
   }
 
   return (
-    <main>
+    <main className="app">
       <h1>Min ToDo</h1>
-      <form onSubmit={addTodo}>
+
+      <form className="input-row" onSubmit={addTodo}>
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Ny uppgift"
         />
+
         <button type="submit">Lägg till</button>
       </form>
-      <ul>
+
+      <ul className="todo-list">
         {todos.map((t) => (
-          <li key={t.id}>
-            <button type="button" onClick={() => toggleDone(t.id)}>
+          <li className="todo" key={t.id}>
+            <button
+              type="button"
+              onClick={() => toggleDone(t.id)}
+            >
               {t.done ? "Avmarkera" : "Klar"}
             </button>{" "}
+
             {t.text}{" "}
-            <button type="button" onClick={() => removeTodo(t.id)}>
+
+            <button
+              type="button"
+              onClick={() => removeTodo(t.id)}
+            >
               Ta bort
             </button>
           </li>
