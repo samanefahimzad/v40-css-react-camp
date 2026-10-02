@@ -1,16 +1,15 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Hur kopplas CSS in i React?
+Jag importerar App.css och använder CSS-klasser med className.
+2. Hur ser användaren vilka todos som är klara? Peka på klassen i din CSS.
+När done är true får todo klassen completed, som gör texten genomstruken och nedtonad.
+Min kod:
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+3. Tre steg när stil “inte tar”: spara → import → className → Inspect.
+Spara - Har jag sparat App.css?
+Import - Har jag import "./App.css";  i App.jsx?
+className - Har elementet rätt klass?
+Inspect - Jag kan högerklicka på elementet i Chrome 
+Inspektera och kontrollera att klassen verkligen finns.

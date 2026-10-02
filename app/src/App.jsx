@@ -50,27 +50,27 @@ function App() {
         <button type="submit">Lägg till</button>
       </form>
 
-      <ul className="todo-list">
-        {todos.map((t) => (
-          <li className="todo" key={t.id}>
-            <button
-              type="button"
-              onClick={() => toggleDone(t.id)}
-            >
-              {t.done ? "Avmarkera" : "Klar"}
-            </button>{" "}
+<ul className="todo-list">
+  {todos.map((t) => (
+    <li className={t.done ? "todo completed" : "todo"} key={t.id}>
+      <button
+        type="button"
+        onClick={() => toggleDone(t.id)}
+      >
+        {t.done ? "Avmarkera" : "Klar"}
+      </button>{" "}
 
-            {t.text}{" "}
+      {t.text}{" "}
 
-            <button
-              type="button"
-              onClick={() => removeTodo(t.id)}
-            >
-              Ta bort
-            </button>
-          </li>
-        ))}
-      </ul>
+      <button
+        type="button"
+        onClick={() => removeTodo(t.id)}
+      >
+        Ta bort
+      </button>
+    </li>
+  ))}
+</ul>
     </main>
   );
 }
